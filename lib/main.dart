@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:norbert_cholody_cv/cubit/theme_cubit.dart';
+import 'package:norbert_cholody_cv/pages/my_story_page.dart';
 import 'package:norbert_cholody_cv/widgets/wave_widget.dart';
 
 void main() {
-  runApp(const MyCVApp());
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<ThemeCubit>(
+          create: (context) => ThemeCubit(),
+        ),
+      ],
+      child: const MyCVApp(),
+    ),
+  );
 }
 
 class MyCVApp extends StatelessWidget {
@@ -10,13 +22,14 @@ class MyCVApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Norbert Chołody CV',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: const CVPage(),
+    return BlocBuilder<ThemeCubit, ThemeData>(
+      builder: (context, theme) {
+        return MaterialApp(
+          title: 'Norbert Chołody CV',
+          theme: theme,
+          home: const CVPage(),
+        );
+      },
     );
   }
 }
@@ -29,7 +42,6 @@ class CVPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final bool keyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
     return Scaffold(
-      backgroundColor: Colors.green,
       appBar: AppBar(
         backgroundColor: Colors.red,
         title: const Text(
@@ -86,7 +98,12 @@ class CVPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => const MyStoryPage()),
+                            );
+                          },
                           child: const Text(
                             'English',
                             style: TextStyle(
@@ -97,7 +114,12 @@ class CVPage extends StatelessWidget {
                           )),
                       const SizedBox(width: 20),
                       ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => const MyStoryPage()),
+                            );
+                          },
                           child: const Text(
                             'Polish',
                             style: TextStyle(

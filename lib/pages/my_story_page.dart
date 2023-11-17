@@ -54,11 +54,21 @@ class MyStoryPage extends StatelessWidget {
                   context.read<ThemeCubit>().toggleTheme();
                 },
               ),
-            )
+            ),
+            //   ElevatedButton(onPressed: () {}, child: Text('data'))
           ],
         ),
       ),
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(Icons.arrow_back),
+            tooltip: 'Wróć',
+          ),
+        ],
         backgroundColor: Colors.red,
         title: const Text(
           "Moja Historia z Flutter",
@@ -207,6 +217,12 @@ class MyStoryPage extends StatelessWidget {
                       'ALNO 3D to firma zajmująca się drukiem 3D a także pod tą marką wydałem obie swoje aplikacje.',
                       style: TextStyle(fontSize: 20),
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Text(
+                        'W obecnej chwili pracuję nad swoją trzecią aplikacją a także, szukam pracy jako programista flutter aby codziennie móc uczyć się od profesionalistów i brać udział w projektach komercyjnych.',
+                        style: TextStyle(fontSize: 20)),
                     const SizedBox(
                       height: 10,
                     ),

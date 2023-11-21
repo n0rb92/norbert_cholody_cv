@@ -1,28 +1,25 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'weather_model.g.dart';
+
+@JsonSerializable()
 class WeatherModel {
-  final double temperature;
-  final double precipitation;
-  final int humidity;
-  final double pressure;
-  final double windSpeed;
-  final String windDirection;
+  double? temperature;
+  double? precipitation;
+  int? humidity;
+  double? pressure;
+  double? windSpeed;
+  String? windDirection;
 
   WeatherModel({
-    required this.temperature,
-    required this.precipitation,
-    required this.humidity,
-    required this.pressure,
-    required this.windSpeed,
-    required this.windDirection,
+    this.temperature,
+    this.precipitation,
+    this.humidity,
+    this.pressure,
+    this.windSpeed,
+    this.windDirection,
   });
 
-  factory WeatherModel.fromJson(Map<String, dynamic> json) {
-    return WeatherModel(
-      temperature: json['current']['temp_c'] as double,
-      precipitation: json['current']['precip_mm'] as double,
-      humidity: json['current']['humidity'] as int,
-      pressure: json['current']['pressure_mb'] as double,
-      windSpeed: json['current']['wind_kph'] as double,
-      windDirection: json['current']['wind_dir'] as String,
-    );
-  }
+  factory WeatherModel.fromJson(Map<String, dynamic> json) =>
+      _$WeatherModelFromJson(json);
 }

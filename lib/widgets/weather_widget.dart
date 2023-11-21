@@ -17,7 +17,7 @@ class WeatherWidget extends StatelessWidget {
           TextField(
             controller: controller,
             decoration: InputDecoration(
-              labelText: 'Enter City Name, to know actually temperature',
+              labelText: 'Enter City Name, to know actually weather',
               suffixIcon: IconButton(
                   icon: const Icon(Icons.search),
                   onPressed: () {

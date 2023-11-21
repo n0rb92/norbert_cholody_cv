@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:norbert_cholody_cv/cubit/theme_cubit.dart';
+import 'package:norbert_cholody_cv/pages/my_skills.dart';
 import 'package:norbert_cholody_cv/widgets/rotating_logo_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -55,25 +56,42 @@ class MyStoryPage extends StatelessWidget {
                 },
               ),
             ),
-            //   ElevatedButton(onPressed: () {}, child: Text('data'))
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(30, 25),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(32.0),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (context) => const MySkillsPage()),
+                  );
+                },
+                child: const Text('What can I do?'))
           ],
         ),
       ),
       appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: const Icon(Icons.arrow_back),
-            tooltip: 'Wróć',
-          ),
-        ],
         backgroundColor: Colors.red,
-        title: const Text(
-          "Moja Historia z Flutter",
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 40),
+        title: Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(Icons.arrow_back),
+              tooltip: 'Wróć',
+            ),
+            const Text(
+              "Moja Historia z Flutter",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 40),
+            ),
+          ],
         ),
       ),
       body: SingleChildScrollView(

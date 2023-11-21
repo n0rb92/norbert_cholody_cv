@@ -1,8 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:norbert_cholody_cv/cubit/theme_cubit.dart';
 import 'package:norbert_cholody_cv/cubit/weather_cubit.dart';
-import 'package:norbert_cholody_cv/models/weather_api_client.dart';
+import 'package:norbert_cholody_cv/models/weather_api.dart';
+
 import 'package:norbert_cholody_cv/pages/first_page.dart';
 
 void main() {
@@ -13,7 +15,7 @@ void main() {
           create: (context) => ThemeCubit(),
         ),
         BlocProvider<WeatherCubit>(
-            create: (context) => WeatherCubit(WeatherApiClient()))
+            create: (context) => WeatherCubit(WeatherApi(Dio())))
       ],
       child: const MyCVApp(),
     ),

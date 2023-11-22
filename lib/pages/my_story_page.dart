@@ -11,6 +11,9 @@ final Uri _url = Uri.parse(
 final Uri _url2 = Uri.parse(
     'https://play.google.com/store/apps/details?id=com.norbertcholody.filaments_warehouse');
 final Uri _url3 = Uri.parse('https://alno3d.pl');
+final Uri _url4 = Uri.parse('https://github.com/n0rb92?tab=repositories');
+final Uri _url5 = Uri.parse(
+    'https://play.google.com/store/apps/developer?id=Norbert+Chołody+ALNO+3D');
 
 class MyStoryPage extends StatelessWidget {
   const MyStoryPage({super.key});
@@ -69,7 +72,36 @@ class MyStoryPage extends StatelessWidget {
                         builder: (context) => const MySkillsPage()),
                   );
                 },
-                child: const Text('What can I do?'))
+                child: const Text('My skills')),
+            const SizedBox(
+              height: 5,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                fixedSize: const Size(30, 25),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0),
+                ),
+              ),
+              onPressed: () {
+                _launchUrl4();
+              },
+              child: const Text('My Github'),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(30, 25),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(32.0),
+                  ),
+                ),
+                onPressed: () {
+                  _launchUrl5();
+                },
+                child: const Text('My Google Play Apps'))
           ],
         ),
       ),
@@ -159,12 +191,7 @@ class MyStoryPage extends StatelessWidget {
                       height: 10,
                     ),
                     const Text(
-                      'W czerwcu 2023 roku, zainteresowałem się poznaniem możliwości jakie daje chatGPT w nauce i przyśpieszeniu procesu programowania, szybko decydując się na przejście na płatną wersję, dzięki czemu mogłem ustawić dla czatu zestaw własnych instrukcji poprawiających jego sposób pomocy w pisaniu kodu i rozwiązywaniu problemów a także zyskując dostęp do wtyczek umożliwiających przeglądanie stron i uczenie go wtyczek czy rozszerzeń we flutterze dzięki czemu stał się poważnym narzędziem w nauce i tworzeniu.',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      'W lipcu 2023 roku podjąłem decyzję by zacząć tworzyć swoją własną aplikację, którą stworzę sam od początku do końca, Aplikacja ta skierowana jest dla kolekcionerów modeli samochodów firm hot Wheels i Matchbox, które sam także kolekcionuję dzięki czemu sam jestem aktywnym użytkownikiem swojej aplikacji, jest ona dostępna w sklepie Play a jej nazwa to "Model Maniacs", dostępna jest w 7 językach i oparta jest o Firebase. Aplikacja ukazała się 29 sierpnia, i od tamtej pory dostała 4 aktualizacje.',
+                      'W lipcu 2023 roku, po pół roku intensywnej nauki podjąłem decyzję by zacząć tworzyć swoją pierwszą własną aplikację, którą stworzę sam od początku do końca, Aplikacja ta skierowana jest dla kolekcjonerów modeli samochodów firm hot Wheels i Matchbox, które sam także kolekcionuję dzięki czemu sam jestem aktywnym użytkownikiem swojej aplikacji, jest ona dostępna w sklepie Play a jej nazwa to "Model Maniacs", dostępna jest w 7 językach i oparta jest o Firebase. Aplikacja ukazała się 29 sierpnia, i od tamtej pory dostała 4 aktualizacje.',
                       style: TextStyle(fontSize: 20),
                     ),
                     const SizedBox(
@@ -232,15 +259,15 @@ class MyStoryPage extends StatelessWidget {
                       height: 10,
                     ),
                     const Text(
-                      'ALNO 3D to firma zajmująca się drukiem 3D a także pod tą marką wydałem obie swoje aplikacje.',
-                      style: TextStyle(fontSize: 20),
-                    ),
+                        'W obecnej chwili pracuję nad swoją trzecią aplikacją a także, szukam pracy jako programista flutter aby codziennie móc uczyć się od profesionalistów i brać udział w projektach komercyjnych.',
+                        style: TextStyle(fontSize: 20)),
                     const SizedBox(
                       height: 10,
                     ),
                     const Text(
-                        'W obecnej chwili pracuję nad swoją trzecią aplikacją a także, szukam pracy jako programista flutter aby codziennie móc uczyć się od profesionalistów i brać udział w projektach komercyjnych.',
-                        style: TextStyle(fontSize: 20)),
+                      'ALNO 3D to firma zajmująca się drukiem 3D a także pod tą marką wydałem obie swoje aplikacje.',
+                      style: TextStyle(fontSize: 20),
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
@@ -286,5 +313,17 @@ Future<void> _launchUrl2() async {
 Future<void> _launchUrl3() async {
   if (!await launchUrl(_url3)) {
     throw Exception('Could not launch $_url3');
+  }
+}
+
+Future<void> _launchUrl4() async {
+  if (!await launchUrl(_url4)) {
+    throw Exception('Could not launch $_url4');
+  }
+}
+
+Future<void> _launchUrl5() async {
+  if (!await launchUrl(_url5)) {
+    throw Exception('Could not launch $_url4');
   }
 }

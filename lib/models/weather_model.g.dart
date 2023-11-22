@@ -17,6 +17,7 @@ WeatherModel _$WeatherModelFromJson(Map<String, dynamic> json) {
   );
 }
 
+// ignore: unused_element
 Map<String, dynamic> _$WeatherModelToJson(WeatherModel instance) =>
     <String, dynamic>{
       'temperature': instance.temperature,

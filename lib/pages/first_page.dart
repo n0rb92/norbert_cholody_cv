@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:norbert_cholody_cv/pages/my_story_page.dart';
+import 'package:norbert_cholody_cv/widgets/foto_widget.dart';
 import 'package:norbert_cholody_cv/widgets/wave_widget.dart';
 
 class FirstPage extends StatelessWidget {
@@ -32,13 +33,7 @@ class FirstPage extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(50),
-            child: CircleAvatar(
-              backgroundImage: AssetImage('images/foto.jpg'),
-              maxRadius: 150,
-            ),
-          ),
+          const Padding(padding: EdgeInsets.all(50), child: FotoWidget()),
           AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             decoration: BoxDecoration(

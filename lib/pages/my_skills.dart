@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:norbert_cholody_cv/widgets/map_widget.dart';
 import 'package:norbert_cholody_cv/widgets/weather_widget.dart';
 
 class MySkillsPage extends StatelessWidget {
@@ -74,6 +75,16 @@ class MySkillsPage extends StatelessWidget {
                       width: 400,
                       child: WeatherWidget(controller: TextEditingController()),
                     ),
+                    const Text(
+                      '- Twoja lokalizacja:',
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 300,
+                      width: 300,
+                      child: MapImageWidget(),
+                    )
                   ],
                 ),
               ),

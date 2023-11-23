@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:norbert_cholody_cv/cubit/theme_cubit.dart';
 import 'package:norbert_cholody_cv/pages/my_skills.dart';
+import 'package:norbert_cholody_cv/widgets/foto_widget.dart';
 import 'package:norbert_cholody_cv/widgets/rotating_logo_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -135,10 +136,7 @@ class MyStoryPage extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CircleAvatar(
-                    backgroundImage: AssetImage('images/foto.jpg'),
-                    radius: 120,
-                  ),
+                  const FotoWidget(),
                   const SizedBox(
                     height: 10,
                   ),

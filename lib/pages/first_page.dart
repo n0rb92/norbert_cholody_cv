@@ -4,7 +4,8 @@ import 'package:norbert_cholody_cv/widgets/foto_widget.dart';
 import 'package:norbert_cholody_cv/widgets/wave_widget.dart';
 
 class FirstPage extends StatelessWidget {
-  const FirstPage({super.key});
+  final Function(String) onLocaleChange;
+  const FirstPage({Key? key, required this.onLocaleChange}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +63,7 @@ class FirstPage extends StatelessWidget {
                     children: [
                       ElevatedButton(
                           onPressed: () {
+                            onLocaleChange('en');
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (context) => const MyStoryPage()),
@@ -78,6 +80,7 @@ class FirstPage extends StatelessWidget {
                       const SizedBox(width: 20),
                       ElevatedButton(
                           onPressed: () {
+                            onLocaleChange('pl');
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (context) => const MyStoryPage()),

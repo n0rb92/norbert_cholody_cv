@@ -6,6 +6,7 @@ import 'package:norbert_cholody_cv/pages/my_skills.dart';
 import 'package:norbert_cholody_cv/widgets/foto_widget.dart';
 import 'package:norbert_cholody_cv/widgets/rotating_logo_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 final Uri _url = Uri.parse(
     'https://play.google.com/store/apps/details?id=com.norbertcholody.kolekcja_hw');
@@ -25,15 +26,15 @@ class MyStoryPage extends StatelessWidget {
     await Clipboard.setData(const ClipboardData(text: 'norbert@alno3d.pl'));
 
     scaffoldMessenger.showSnackBar(
-      const SnackBar(
+      SnackBar(
         behavior: SnackBarBehavior.floating,
         content: Row(
           children: <Widget>[
-            Text('Adres e-mail skopiowany do schowka.'),
-            SizedBox(
+            Text(AppLocalizations.of(context)!.emailCopied),
+            const SizedBox(
               width: 5,
             ),
-            Icon(
+            const Icon(
               Icons.check,
               color: Colors.white,
             )
@@ -51,7 +52,7 @@ class MyStoryPage extends StatelessWidget {
           children: <Widget>[
             const DrawerHeader(child: RotatingFlutterLogo()),
             ListTile(
-              title: const Text('Zmień Motyw'),
+              title: Text(AppLocalizations.of(context)!.themeChange),
               trailing: Switch(
                 value: context.watch<ThemeCubit>().state.brightness ==
                     Brightness.dark,
@@ -73,7 +74,7 @@ class MyStoryPage extends StatelessWidget {
                         builder: (context) => const MySkillsPage()),
                   );
                 },
-                child: const Text('My skills')),
+                child: Text(AppLocalizations.of(context)!.mySkills)),
             const SizedBox(
               height: 5,
             ),
@@ -87,7 +88,7 @@ class MyStoryPage extends StatelessWidget {
               onPressed: () {
                 _launchUrl4();
               },
-              child: const Text('My Github'),
+              child: Text(AppLocalizations.of(context)!.myGitHub),
             ),
             const SizedBox(
               height: 5,
@@ -102,7 +103,7 @@ class MyStoryPage extends StatelessWidget {
                 onPressed: () {
                   _launchUrl5();
                 },
-                child: const Text('My Google Play Apps'))
+                child: Text(AppLocalizations.of(context)!.myGooglePlay))
           ],
         ),
       ),
@@ -117,9 +118,9 @@ class MyStoryPage extends StatelessWidget {
               icon: const Icon(Icons.arrow_back),
               tooltip: 'Wróć',
             ),
-            const Text(
-              "Moja Historia z Flutter",
-              style: TextStyle(
+            Text(
+              AppLocalizations.of(context)!.myHistory,
+              style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 40),
@@ -166,31 +167,31 @@ class MyStoryPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Cześć, nazywam się Norbert Chołody.",
-                      style: TextStyle(
+                    Text(
+                      AppLocalizations.of(context)!.himyNameIs,
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 30,
                       ),
                     ),
                     const SizedBox(height: 10),
-                    const Text(
-                      'Chcę ci opowiedzieć moją jeszcze krótką ale intensywną przygodę z programowaniem we Flutter.',
-                      style: TextStyle(fontSize: 20),
+                    Text(
+                      AppLocalizations.of(context)!.wantToTellYou,
+                      style: const TextStyle(fontSize: 20),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text(
-                      'W grudniu 2022 roku na facebooku wyświetliła mi się reklama Adama Smaki, który zachęcał do poznania fajnej technologii, dzięki której możemy nauczyć się tworzyć własne aplikacje mobilne, wydało mi się to ciekawe i zapisałem się na webinar na, którym w ciągu godziny przedstawił fluttera w sposób, który niesamowicie mnie zainteresował i szybko podjąłem decyzję o rozpoczęciu nauki. Od stycznia 2023 roku rozpocząłem naukę, która sprawia mi niesamowitą frajdę. Oprócz nauki z kursu Adama, uczę się także od "Flutter Mapp" i "Flutter Athletes Poland".',
-                      style: TextStyle(fontSize: 20),
+                    Text(
+                      AppLocalizations.of(context)!.paragraph1,
+                      style: const TextStyle(fontSize: 20),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text(
-                      'W lipcu 2023 roku, po pół roku intensywnej nauki podjąłem decyzję by zacząć tworzyć swoją pierwszą własną aplikację, którą stworzę sam od początku do końca, Aplikacja ta skierowana jest dla kolekcjonerów modeli samochodów firm hot Wheels i Matchbox, które sam także kolekcionuję dzięki czemu sam jestem aktywnym użytkownikiem swojej aplikacji, jest ona dostępna w sklepie Play a jej nazwa to "Model Maniacs", dostępna jest w 7 językach i oparta jest o Firebase. Aplikacja ukazała się 29 sierpnia, i od tamtej pory dostała 4 aktualizacje.',
-                      style: TextStyle(fontSize: 20),
+                    Text(
+                      AppLocalizations.of(context)!.paragraph2,
+                      style: const TextStyle(fontSize: 20),
                     ),
                     const SizedBox(
                       height: 10,
@@ -222,9 +223,9 @@ class MyStoryPage extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text(
-                      'Po opublikowaniu Model Maniacs, postanowiłem zacząć tworzyć aplikację, która jako pierwsza była w moich myślach lecz nie czułem się na siłach jeszcze do tej pory, a mianowicie aplikację dla firm i prywatnych użytkowników drukarek 3D. Ponieważ sam od 2021 roku prowadzę małą firmę zajmującą się drukiem 3D, wpadłem na pomysł stworzenia aplikacji, w której będziemy mogli prowadzić nasz magazyn filamentów do druku a takżę bazę drukarek i tworzyć historię wydruków, która będzię uwzględniać zużycie filamentów. Po nieco ponad dwóch miesiącach intensywnej pracy udało mi się opublikować moją aplikację o nazwie ALNO 3D Filaments Warehouse, która równierz oparta jest o Firebase a także, zastosowałem w niej zarządzanie stanem za pomocą Bloc Cubit.',
-                      style: TextStyle(fontSize: 20),
+                    Text(
+                      AppLocalizations.of(context)!.paragraph3,
+                      style: const TextStyle(fontSize: 20),
                     ),
                     const SizedBox(
                       height: 10,
@@ -256,15 +257,14 @@ class MyStoryPage extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text(
-                        'W obecnej chwili pracuję nad swoją trzecią aplikacją a także, szukam pracy jako programista flutter aby codziennie móc uczyć się od profesionalistów i brać udział w projektach komercyjnych.',
-                        style: TextStyle(fontSize: 20)),
+                    Text(AppLocalizations.of(context)!.paragraph4,
+                        style: const TextStyle(fontSize: 20)),
                     const SizedBox(
                       height: 10,
                     ),
-                    const Text(
-                      'ALNO 3D to firma zajmująca się drukiem 3D a także pod tą marką wydałem obie swoje aplikacje.',
-                      style: TextStyle(fontSize: 20),
+                    Text(
+                      AppLocalizations.of(context)!.alno3D,
+                      style: const TextStyle(fontSize: 20),
                     ),
                     const SizedBox(
                       height: 10,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:norbert_cholody_cv/widgets/map_widget.dart';
 import 'package:norbert_cholody_cv/widgets/weather_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MySkillsPage extends StatelessWidget {
   const MySkillsPage({super.key});
@@ -9,15 +10,15 @@ class MySkillsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Row(
+        title: Row(
           children: [
             Text(
-              'My Skills',
+              AppLocalizations.of(context)!.mySkills,
             ),
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
-            Icon(Icons.check)
+            const Icon(Icons.check)
           ],
         ),
       ),
@@ -65,20 +66,20 @@ class MySkillsPage extends StatelessWidget {
               Expanded(
                 child: Column(
                   children: [
-                    const Text(
-                      '- API Implementation',
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    Text(
+                      AppLocalizations.of(context)!.apiImplementation,
+                      style: const TextStyle(
+                          fontSize: 30, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       height: 250,
                       width: 400,
                       child: WeatherWidget(controller: TextEditingController()),
                     ),
-                    const Text(
-                      '- Twoja lokalizacja:',
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    Text(
+                      AppLocalizations.of(context)!.yourLocation,
+                      style: const TextStyle(
+                          fontSize: 30, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
                       height: 300,

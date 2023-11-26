@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:norbert_cholody_cv/cubit/weather_cubit.dart';
 import 'package:norbert_cholody_cv/cubit/weather_state.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WeatherWidget extends StatelessWidget {
   const WeatherWidget({super.key, required this.controller});
@@ -17,7 +18,7 @@ class WeatherWidget extends StatelessWidget {
           TextField(
             controller: controller,
             decoration: InputDecoration(
-              labelText: 'Enter City Name, to know actually weather',
+              labelText: AppLocalizations.of(context)!.weatherWidget,
               suffixIcon: IconButton(
                   icon: const Icon(Icons.search),
                   onPressed: () {
@@ -34,19 +35,22 @@ class WeatherWidget extends StatelessWidget {
                 final weather = state.weatherData;
                 return Column(
                   children: [
-                    Text('Temperature: ${weather.temperature} °C'),
-                    Text('Precipitation: ${weather.precipitation} mm'),
-                    Text('Humidity: ${weather.humidity}%'),
-                    Text('Pressure: ${weather.pressure} mb'),
                     Text(
-                        'Wind: ${weather.windSpeed} kph, ${weather.windDirection}'),
+                        '${AppLocalizations.of(context)!.temp} ${weather.temperature} °C'),
+                    Text(
+                        '${AppLocalizations.of(context)!.prec} ${weather.precipitation} mm'),
+                    Text(
+                        '${AppLocalizations.of(context)!.hum} ${weather.humidity}%'),
+                    Text(
+                        '${AppLocalizations.of(context)!.press} ${weather.pressure} mb'),
+                    Text(
+                        '${AppLocalizations.of(context)!.wind} ${weather.windSpeed} km/h, ${weather.windDirection}'),
                   ],
                 );
               } else if (state is WeatherError) {
                 return Text(state.message);
               } else {
-                return const Text(
-                    'Enter a city name to get weather information');
+                return Text(AppLocalizations.of(context)!.weatherWidget);
               }
             },
           )

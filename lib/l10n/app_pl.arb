@@ -20,5 +20,6 @@
     "prec": "Opady:",
     "hum": "Wilgotność:",
     "press": "Ciśnienie atmosferyczne:",
-    "wind": "Wiatr:"
+    "wind": "Wiatr:",
+    "footer": "Stworzony z dumą we Flutter"
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:norbert_cholody_cv/pages/my_story_page.dart';
+import 'package:norbert_cholody_cv/widgets/footer_widget.dart';
 import 'package:norbert_cholody_cv/widgets/foto_widget.dart';
 import 'package:norbert_cholody_cv/widgets/wave_widget.dart';
 
@@ -12,6 +13,7 @@ class FirstPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final bool keyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
     return Scaffold(
+      bottomSheet: const FooterWidget(),
       appBar: AppBar(
         backgroundColor: Colors.red,
         title: const Text(

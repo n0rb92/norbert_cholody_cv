@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:norbert_cholody_cv/cubit/theme_cubit.dart';
+import 'package:norbert_cholody_cv/main.dart';
 import 'package:norbert_cholody_cv/pages/my_skills.dart';
 import 'package:norbert_cholody_cv/widgets/foto_widget.dart';
 import 'package:norbert_cholody_cv/widgets/rotating_logo_widget.dart';
@@ -20,24 +21,17 @@ final Uri _url5 = Uri.parse(
 class MyStoryPage extends StatelessWidget {
   const MyStoryPage({super.key});
 
-  Future<void> _copyEmailToClipboard(BuildContext context) async {
-    final scaffoldMessenger = ScaffoldMessenger.of(context);
-
+  Future<void> _copyEmailToClipboard(String message) async {
     await Clipboard.setData(const ClipboardData(text: 'norbert@alno3d.pl'));
 
-    scaffoldMessenger.showSnackBar(
+    messengerKey.currentState?.showSnackBar(
       SnackBar(
         behavior: SnackBarBehavior.floating,
         content: Row(
           children: <Widget>[
-            Text(AppLocalizations.of(context)!.emailCopied),
-            const SizedBox(
-              width: 5,
-            ),
-            const Icon(
-              Icons.check,
-              color: Colors.white,
-            )
+            Text(message),
+            const SizedBox(width: 5),
+            const Icon(Icons.check, color: Colors.white),
           ],
         ),
       ),
@@ -142,7 +136,8 @@ class MyStoryPage extends StatelessWidget {
                     height: 10,
                   ),
                   GestureDetector(
-                    onTap: () => _copyEmailToClipboard(context),
+                    onTap: () => _copyEmailToClipboard(
+                        AppLocalizations.of(context)!.emailCopied),
                     child: const Text(
                       textAlign: TextAlign.center,
                       'norbert@alno3d.pl',

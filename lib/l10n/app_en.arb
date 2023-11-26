@@ -20,5 +20,6 @@
     "prec": "Precipitation:",
     "hum": "Humidity:",
     "press": "Pressure:",
-    "wind": "Wind:"
+    "wind": "Wind:",
+    "footer": "Made in proud with Flutter"
   }

@@ -1,6 +1,7 @@
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:js' as js;
 import 'package:flutter/material.dart';
+import 'package:norbert_cholody_cv/config.dart';
 
 class MapImageWidget extends StatefulWidget {
   const MapImageWidget({super.key});
@@ -10,7 +11,6 @@ class MapImageWidget extends StatefulWidget {
 }
 
 String generateMapImageUrl(String latitude, String longitude) {
-  const String apiKey = 'AIzaSyDT7xFXf8L03EsItKiWtbAR7qQpy7WgJCI';
   return 'https://maps.googleapis.com/maps/api/staticmap?center=$latitude,$longitude&zoom=14&size=300x300&key=$apiKey';
 }
 

@@ -55,6 +55,7 @@ class MyCVState extends State<MyCV> {
     return BlocBuilder<ThemeCubit, ThemeData>(
       builder: (context, themeData) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           scaffoldMessengerKey: messengerKey,
           locale: _locale,
           localizationsDelegates: const [

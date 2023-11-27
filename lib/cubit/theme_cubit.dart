@@ -13,6 +13,7 @@ class ThemeCubit extends Cubit<ThemeData> {
         backgroundColor: Colors.blue,
       ),
     ),
+    dividerColor: Colors.black,
   );
 
   static final _darkTheme = ThemeData(
@@ -23,6 +24,7 @@ class ThemeCubit extends Cubit<ThemeData> {
         backgroundColor: Colors.grey,
       ),
     ),
+    dividerColor: Colors.white,
   );
 
   void toggleTheme() {

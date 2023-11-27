@@ -181,8 +181,10 @@ class MyStoryPage extends StatelessWidget {
                       AppLocalizations.of(context)!.paragraph1,
                       style: const TextStyle(fontSize: 20),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    Divider(
+                      height: 20,
+                      thickness: 3,
+                      color: Theme.of(context).dividerColor,
                     ),
                     Text(
                       AppLocalizations.of(context)!.paragraph2,
@@ -215,8 +217,54 @@ class MyStoryPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    Row(
+                      children: [
+                        ElevatedButton(
+                          onPressed: () => showDialog(
+                            context: context,
+                            builder: (context) => Dialog(
+                              child: AspectRatio(
+                                aspectRatio: 0.3,
+                                child: FittedBox(
+                                  fit: BoxFit.cover,
+                                  child: Image.asset('images/model_gif.gif'),
+                                ),
+                              ),
+                            ),
+                          ),
+                          child: const Text(
+                            "GIF",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 2,
+                        ),
+                        ElevatedButton(
+                          onPressed: () => showDialog(
+                            context: context,
+                            builder: (context) => Dialog(
+                              child: AspectRatio(
+                                aspectRatio: 0.3,
+                                child: FittedBox(
+                                  fit: BoxFit.cover,
+                                  child:
+                                      Image.asset('images/model_pubspec.png'),
+                                ),
+                              ),
+                            ),
+                          ),
+                          child: const Text(
+                            "Pubspec",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      height: 20,
+                      thickness: 3,
+                      color: Theme.of(context).dividerColor,
                     ),
                     Text(
                       AppLocalizations.of(context)!.paragraph3,
@@ -249,8 +297,53 @@ class MyStoryPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    Row(
+                      children: [
+                        ElevatedButton(
+                          onPressed: () => showDialog(
+                            context: context,
+                            builder: (context) => Dialog(
+                              child: AspectRatio(
+                                aspectRatio: 0.3,
+                                child: FittedBox(
+                                  fit: BoxFit.cover,
+                                  child: Image.asset('images/alno_gif.gif'),
+                                ),
+                              ),
+                            ),
+                          ),
+                          child: const Text(
+                            "GIF",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 2,
+                        ),
+                        ElevatedButton(
+                          onPressed: () => showDialog(
+                            context: context,
+                            builder: (context) => Dialog(
+                              child: AspectRatio(
+                                aspectRatio: 0.3,
+                                child: FittedBox(
+                                  fit: BoxFit.cover,
+                                  child: Image.asset('images/alno_pubspec.png'),
+                                ),
+                              ),
+                            ),
+                          ),
+                          child: const Text(
+                            "Pubspec",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      height: 20,
+                      thickness: 3,
+                      color: Theme.of(context).dividerColor,
                     ),
                     Text(AppLocalizations.of(context)!.paragraph4,
                         style: const TextStyle(fontSize: 20)),
